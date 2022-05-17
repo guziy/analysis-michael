@@ -44,8 +44,10 @@ def filt(idx):
 # Filter out useless configurations
 jpni,jpnj,jpi,jpj,nw,nl,n,r,ar = filt(jpni > 2)
 jpni,jpnj,jpi,jpj,nw,nl,n,r,ar = filt(jpnj > 2)
-jpni,jpnj,jpi,jpj,nw,nl,n,r,ar = filt(nw <= 384)
+jpni,jpnj,jpi,jpj,nw,nl,n,r,ar = filt(nw <= 1500)
 jpni,jpnj,jpi,jpj,nw,nl,n,r,ar = filt(r < 1)
+# jpni,jpnj,jpi,jpj,nw,nl,n,r,ar = filt(nw % 36 == 0)
+
 
 # Produce the lookup table for the salishsea command
 LUT = np.vstack((jpni,jpnj,nw)).T
@@ -89,7 +91,6 @@ with open('preferred-decompositions.rst', 'w') as f:
     stars='*'*len(title)
     f.write(stars+'\n'+title+'\n'+stars+'\n\n')
     f.write(line+head+line)
-    for k in range(min(nw), 256+1):
+    for k in range(min(nw), max(nw) + 1):
         writebest(f,k,jpni,jpnj,jpi,jpj,nw,nl,n,r,ar)
     f.write(line)
-

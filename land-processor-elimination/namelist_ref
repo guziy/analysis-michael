@@ -15,11 +15,11 @@
 ! njzoom = j -index of point (1,1) of the zoomed region/ jpjdta
 !
 &NAMSPACE
-    jpk    = 3
-    jpiglo =  4322
-    jpjglo =  3606
-    jpidta =  4322
-    jpjdta =  3606
+    jpk    = 40
+    jpiglo =  398
+    jpjglo =  898
+    jpidta =  398
+    jpjdta =  898
     nizoom = 1
     njzoom = 1
 /
@@ -31,7 +31,7 @@
 !           1 : try to optimize the use of memory
 !
 &NAMPROC
-     jprocx= 2000
+     jprocx= 1024
      jpmem = 0
 /
 !''''''''''''''''''''''''''''''''''''''
@@ -57,7 +57,7 @@
 !
 &NAMFILE
      cbathy='mesh_mask_renamed.nc'
-     ln_zps=.true.
+     ln_zps=.false.
 /
 !
 !''''''''''''''''''''''''''''''''''''''
@@ -69,7 +69,7 @@
 !   covdta = Root for the overdata file name .
 !           Complete name will be {covdta}.{jpni}x{jpnj}_{jpnij}
 &NAMKEEP
-    jpni = 38
-    jpnj = 36 
-    covdta = 'GDSPS'
+    jpni = 8
+    jpnj =18 
+    covdta = 'SalishSea'
 /

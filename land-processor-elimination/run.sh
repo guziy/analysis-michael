@@ -1,17 +1,21 @@
 #!/bin/bash
+ 
+. COMPILE_ENV 
 
-TOOL=$HOME/MEOPAR/NEMO-3.6-code/NEMOGCM/TOOLS/MPP_PREP/mpp_optimiz_zoom_nc.exe
+
+TOOL=/home/olh001/Fortran/concepts_5.1.2/NEMOGCM/TOOLS/MPP_PREP/mpp_optimiz_zoom_nc.exe
 
 # Select mesh mask
 #MESHMASK=$HOME/MEOPAR/NEMO-forcing/grid/mesh_mask_downbyone2.nc
-MESHMASK=$HOME/MEOPAR/NEMO-forcing/grid/mesh_mask201702.nc
+MESHMASK=/home/olh001/data/ppp4/gdsps_data/pengcheng/eORCA12_pre/bathy_v4.nc
 
 # The mpp_optimiz_zoom_nc tool expects the mesh mask file to have
 # variable "Bathy_level", but the mesh mask produced by NEMO calls
 # it "mbathy". So we rename the variable for use with the tool.
 if [ -f $MESHMASK ]; then
   rm -f mesh_mask_renamed.nc
-  ncrename -h -v mbathy,Bathy_level $MESHMASK mesh_mask_renamed.nc
+  # ncrename -h -v Bathymetry,Bathy_level $MESHMASK mesh_mask_renamed.nc
+  cp $MESHMASK mesh_mask_renamed.nc
 else
   echo "Mesh mask not found"
   exit
@@ -29,5 +33,4 @@ fi
 python readpl.py
 
 # Tidying
-rm -f mesh_mask_renamed.nc processor.layout
-
+# rm -f mesh_mask_renamed.nc processor.layout
