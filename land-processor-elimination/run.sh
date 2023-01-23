@@ -1,13 +1,16 @@
 #!/bin/bash
  
-. COMPILE_ENV 
+# . COMPILE_ENV 
+. ~/.profile_python3
 
-
-TOOL=/home/olh001/Fortran/concepts_5.1.2/NEMOGCM/TOOLS/MPP_PREP/mpp_optimiz_zoom_nc.exe
+export TREE_ROOT=/home/olh001/Fortran/concepts_surge 
+source ${TREE_ROOT}/NEMOGCM/ARCH/RPN/arch-intel_u2.env
+TOOL=${TREE_ROOT}/NEMOGCM/TOOLS/MPP_PREP/mpp_optimiz_zoom_nc.exe
 
 # Select mesh mask
 #MESHMASK=$HOME/MEOPAR/NEMO-forcing/grid/mesh_mask_downbyone2.nc
-MESHMASK=/home/olh001/data/ppp4/gdsps_data/pengcheng/eORCA12_pre/bathy_v4.nc
+MESHMASK=~sssm001/constants/cmde/surge/gdsps/v2.0.0/bathy64TS.nc
+# MESHMASK=/home/smco502/datafiles/constants/cmde/surge/gdsps/v1.0.0/bathy_v4_GoSBoF57.nc
 
 # The mpp_optimiz_zoom_nc tool expects the mesh mask file to have
 # variable "Bathy_level", but the mesh mask produced by NEMO calls

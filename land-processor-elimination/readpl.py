@@ -2,7 +2,6 @@
     Script to process the results of mpp_optimiz_zoom_nc
 """
 from __future__ import division    # For python2 compatibility
-from IPython import embed
 import numpy as np
 
 # Get the results from processor.layout
