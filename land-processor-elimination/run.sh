@@ -4,12 +4,15 @@
 . ~/.profile_python3
 
 export TREE_ROOT=/home/olh001/Fortran/concepts_surge 
-source ${TREE_ROOT}/NEMOGCM/ARCH/RPN/arch-intel_u2.env
+source ${TREE_ROOT}/NEMOGCM/ARCH/RPN/arch-intel_u3.env
 TOOL=${TREE_ROOT}/NEMOGCM/TOOLS/MPP_PREP/mpp_optimiz_zoom_nc.exe
 
 # Select mesh mask
 #MESHMASK=$HOME/MEOPAR/NEMO-forcing/grid/mesh_mask_downbyone2.nc
-MESHMASK=~sssm001/constants/cmde/surge/gdsps/v2.0.0/bathy64TS.nc
+# MESHMASK=~smco502/datafiles/constants/cmde/surge/gdsps/v2.1.0/bathy65TS.nc
+MESHMASK=/home/smco502/datafiles/constants/cmde/surge/gesps/v1.0.0/bathy69.nc
+
+
 # MESHMASK=/home/smco502/datafiles/constants/cmde/surge/gdsps/v1.0.0/bathy_v4_GoSBoF57.nc
 
 # The mpp_optimiz_zoom_nc tool expects the mesh mask file to have
